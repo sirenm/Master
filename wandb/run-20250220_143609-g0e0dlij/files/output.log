@@ -1,0 +1,23 @@
+  0%|                                                                                                                                                                              | 0/1631 [00:00<?, ?it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+ 31%|██████████████████████████████████████████████████▎                                                                                                                 | 500/1631 [03:44<05:57,  3.16it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(                                                                                                                                                                                            
+{'eval_loss': 1.4746571779251099, 'eval_runtime': 30.4022, 'eval_samples_per_second': 122.393, 'eval_steps_per_second': 15.328, 'epoch': 1.0}
+{'eval_loss': 1.2676301002502441, 'eval_runtime': 30.6474, 'eval_samples_per_second': 121.413, 'eval_steps_per_second': 15.205, 'epoch': 2.0}
+{'loss': 1.4966, 'grad_norm': 7.459144115447998, 'learning_rate': 1.3868792152053956e-05, 'epoch': 2.15}
+ 61%|███████████████████████████████████████████████████████████████████████████████████████████████████▉                                                               | 1000/1631 [07:30<03:27,  3.04it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(                                                                                                                                                                                            
+{'eval_loss': 1.1052881479263306, 'eval_runtime': 30.5874, 'eval_samples_per_second': 121.651, 'eval_steps_per_second': 15.235, 'epoch': 3.0}
+{'eval_loss': 0.9059011936187744, 'eval_runtime': 30.4163, 'eval_samples_per_second': 122.336, 'eval_steps_per_second': 15.321, 'epoch': 4.0}
+{'loss': 1.0861, 'grad_norm': 4.411905288696289, 'learning_rate': 7.73758430410791e-06, 'epoch': 4.29}
+ 92%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉             | 1500/1631 [11:16<00:48,  2.73it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(                                                                                                                                                                                            
+{'eval_loss': 0.7906079888343811, 'eval_runtime': 30.7493, 'eval_samples_per_second': 121.011, 'eval_steps_per_second': 15.155, 'epoch': 5.0}
+{'eval_loss': 0.7063043117523193, 'eval_runtime': 30.7327, 'eval_samples_per_second': 121.076, 'eval_steps_per_second': 15.163, 'epoch': 6.0}
+{'loss': 0.8415, 'grad_norm': 16.954710006713867, 'learning_rate': 1.6063764561618639e-06, 'epoch': 6.44}
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1631/1631 [12:01<00:00,  3.83it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1631/1631 [12:33<00:00,  2.16it/s]
+                                                                                                                                                                                                            
+{'eval_loss': 0.693481981754303, 'eval_runtime': 30.465, 'eval_samples_per_second': 122.14, 'eval_steps_per_second': 15.296, 'epoch': 7.0}
+{'train_runtime': 756.2358, 'train_samples_per_second': 34.443, 'train_steps_per_second': 2.157, 'train_loss': 1.1109854430965234, 'epoch': 7.0}

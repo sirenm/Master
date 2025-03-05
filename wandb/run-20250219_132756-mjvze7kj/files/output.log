@@ -1,0 +1,46 @@
+  0%|                                                                                                                                                                               | 0/600 [00:00<?, ?it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+ 82%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                             | 494/600 [04:33<00:41,  2.57it/s]Traceback (most recent call last):
+  File "/mnt/beegfs/home/sirenm/currentmaster/WavLMTrain.py", line 87, in <module>                                                                                                                          
+{'eval_loss': 2.0126349925994873, 'eval_runtime': 10.7415, 'eval_samples_per_second': 67.03, 'eval_steps_per_second': 8.379, 'epoch': 1.0}
+{'eval_loss': 1.8800188302993774, 'eval_runtime': 10.4355, 'eval_samples_per_second': 68.995, 'eval_steps_per_second': 8.624, 'epoch': 2.0}
+{'eval_loss': 1.6938400268554688, 'eval_runtime': 10.6448, 'eval_samples_per_second': 67.639, 'eval_steps_per_second': 8.455, 'epoch': 3.0}
+{'eval_loss': 1.5405656099319458, 'eval_runtime': 10.5403, 'eval_samples_per_second': 68.309, 'eval_steps_per_second': 8.539, 'epoch': 4.0}
+{'eval_loss': 1.4664684534072876, 'eval_runtime': 10.6675, 'eval_samples_per_second': 67.495, 'eval_steps_per_second': 8.437, 'epoch': 5.0}
+{'eval_loss': 1.3401060104370117, 'eval_runtime': 10.4647, 'eval_samples_per_second': 68.803, 'eval_steps_per_second': 8.6, 'epoch': 6.0}
+{'eval_loss': 1.2651954889297485, 'eval_runtime': 10.6066, 'eval_samples_per_second': 67.882, 'eval_steps_per_second': 8.485, 'epoch': 7.0}
+{'eval_loss': 1.2227466106414795, 'eval_runtime': 10.2498, 'eval_samples_per_second': 70.246, 'eval_steps_per_second': 8.781, 'epoch': 8.0}
+    trainer.train()
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2171, in train
+    return inner_training_loop(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2531, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 3712, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/accelerate/accelerator.py", line 2246, in backward
+    loss.backward(**kwargs)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/mnt/beegfs/home/sirenm/currentmaster/WavLMTrain.py", line 87, in <module>
+    trainer.train()
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2171, in train
+    return inner_training_loop(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2531, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 3712, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/accelerate/accelerator.py", line 2246, in backward
+    loss.backward(**kwargs)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

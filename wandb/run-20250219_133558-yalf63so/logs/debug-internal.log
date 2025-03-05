@@ -1,0 +1,15 @@
+{"time":"2025-02-19T13:35:59.399356546+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/mnt/beegfs/home/sirenm/currentmaster/wandb/run-20250219_133558-yalf63so/logs/debug-core.log"}
+{"time":"2025-02-19T13:35:59.629699319+01:00","level":"INFO","msg":"created new stream","id":"yalf63so"}
+{"time":"2025-02-19T13:35:59.630387395+01:00","level":"INFO","msg":"stream: started","id":"yalf63so"}
+{"time":"2025-02-19T13:35:59.630405902+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"yalf63so"}
+{"time":"2025-02-19T13:35:59.630916223+01:00","level":"INFO","msg":"handler: started","stream_id":"yalf63so"}
+{"time":"2025-02-19T13:35:59.630957532+01:00","level":"INFO","msg":"sender: started","stream_id":"yalf63so"}
+{"time":"2025-02-19T13:35:59.958201966+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-19T13:41:38.673828169+01:00","level":"INFO","msg":"stream: closing","id":"yalf63so"}
+{"time":"2025-02-19T13:41:38.673938945+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-19T13:41:38.675859654+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-19T13:41:39.329023068+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-19T13:41:39.524589942+01:00","level":"INFO","msg":"handler: closed","stream_id":"yalf63so"}
+{"time":"2025-02-19T13:41:39.524678408+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"yalf63so"}
+{"time":"2025-02-19T13:41:39.524700897+01:00","level":"INFO","msg":"sender: closed","stream_id":"yalf63so"}
+{"time":"2025-02-19T13:41:39.526679899+01:00","level":"INFO","msg":"stream: closed","id":"yalf63so"}

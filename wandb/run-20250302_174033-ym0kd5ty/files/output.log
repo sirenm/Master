@@ -1,0 +1,42 @@
+  0%|                                                                                                                                                                              | 0/1400 [00:00<?, ?it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+ 20%|████████████████████████████████▊                                                                                                                                   | 280/1400 [02:23<09:15,  2.02it/s]Traceback (most recent call last):
+  File "/mnt/beegfs/home/sirenm/currentmaster/WavLMTrain.py", line 102, in <module>
+    trainer.train()
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2171, in train
+    return inner_training_loop(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2625, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, grad_norm, model, trial, epoch, ignore_keys_for_eval, start_time)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 3071, in _maybe_log_save_evaluate
+    metrics = self._evaluate(trial, ignore_keys_for_eval)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 3025, in _evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 4073, in evaluate
+    output = eval_loop(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 4267, in evaluation_loop
+    losses, logits, labels = self.prediction_step(model, inputs, prediction_loss_only, ignore_keys=ignore_keys)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 4436, in prediction_step
+    has_labels = False if len(self.label_names) == 0 else all(inputs.get(k) is not None for k in self.label_names)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 4436, in <genexpr>
+    has_labels = False if len(self.label_names) == 0 else all(inputs.get(k) is not None for k in self.label_names)
+AttributeError: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/mnt/beegfs/home/sirenm/currentmaster/WavLMTrain.py", line 102, in <module>
+    trainer.train()
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2171, in train
+    return inner_training_loop(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2625, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, grad_norm, model, trial, epoch, ignore_keys_for_eval, start_time)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 3071, in _maybe_log_save_evaluate
+    metrics = self._evaluate(trial, ignore_keys_for_eval)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 3025, in _evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 4073, in evaluate
+    output = eval_loop(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 4267, in evaluation_loop
+    losses, logits, labels = self.prediction_step(model, inputs, prediction_loss_only, ignore_keys=ignore_keys)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 4436, in prediction_step
+    has_labels = False if len(self.label_names) == 0 else all(inputs.get(k) is not None for k in self.label_names)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 4436, in <genexpr>
+    has_labels = False if len(self.label_names) == 0 else all(inputs.get(k) is not None for k in self.label_names)
+AttributeError: 'NoneType' object has no attribute 'get'

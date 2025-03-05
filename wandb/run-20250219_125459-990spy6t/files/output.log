@@ -1,0 +1,4 @@
+  0%|                                                                                                                                                                               | 0/360 [00:00<?, ?it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 360/360 [00:54<00:00,  6.63it/s]
+{'train_runtime': 56.7575, 'train_samples_per_second': 12.686, 'train_steps_per_second': 6.343, 'train_loss': 2.0110853407118054, 'epoch': 1.0}

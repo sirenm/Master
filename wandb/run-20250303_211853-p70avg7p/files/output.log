@@ -1,0 +1,63 @@
+  0%|                                                  | 0/2800 [00:00<?, ?it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+ 18%|█████████████████████████████▎                                                                                                                                      | 500/2800 [05:28<21:39,  1.77it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(                                                                                                                                                                                            
+{'eval_loss': 1.4574594497680664, 'eval_runtime': 39.7142, 'eval_samples_per_second': 37.468, 'eval_steps_per_second': 4.683, 'epoch': 1.0}
+{'loss': 1.508, 'grad_norm': 4.271155834197998, 'learning_rate': 1.642857142857143e-05, 'epoch': 1.79}
+ 30%|█████████████████████████████████████████████████▏                                                                                                                  | 840/2800 [09:28<11:38,  2.80it/s]Traceback (most recent call last):
+  File "/mnt/beegfs/home/sirenm/currentmaster/WavLMTrain.py", line 99, in <module>                                                                                         | 68/186 [00:12<00:24,  4.84it/s]
+{'eval_loss': 1.3218785524368286, 'eval_runtime': 42.1655, 'eval_samples_per_second': 35.29, 'eval_steps_per_second': 4.411, 'epoch': 2.0}
+    trainer.train()
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2171, in train
+    return inner_training_loop(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2625, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, grad_norm, model, trial, epoch, ignore_keys_for_eval, start_time)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 3071, in _maybe_log_save_evaluate
+    metrics = self._evaluate(trial, ignore_keys_for_eval)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 3025, in _evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 4073, in evaluate
+    output = eval_loop(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 4267, in evaluation_loop
+    losses, logits, labels = self.prediction_step(model, inputs, prediction_loss_only, ignore_keys=ignore_keys)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 4483, in prediction_step
+    loss, outputs = self.compute_loss(model, inputs, return_outputs=True)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 3731, in compute_loss
+    outputs = model(**inputs)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/models/wavlm/modeling_wavlm.py", line 1512, in forward
+    padding_mask = self._get_feature_vector_attention_mask(hidden_states.shape[1], attention_mask)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/models/wavlm/modeling_wavlm.py", line 1041, in _get_feature_vector_attention_mask
+    attention_mask = attention_mask.flip([-1]).cumsum(-1).flip([-1]).bool()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/mnt/beegfs/home/sirenm/currentmaster/WavLMTrain.py", line 99, in <module>
+    trainer.train()
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2171, in train
+    return inner_training_loop(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2625, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, grad_norm, model, trial, epoch, ignore_keys_for_eval, start_time)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 3071, in _maybe_log_save_evaluate
+    metrics = self._evaluate(trial, ignore_keys_for_eval)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 3025, in _evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 4073, in evaluate
+    output = eval_loop(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 4267, in evaluation_loop
+    losses, logits, labels = self.prediction_step(model, inputs, prediction_loss_only, ignore_keys=ignore_keys)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 4483, in prediction_step
+    loss, outputs = self.compute_loss(model, inputs, return_outputs=True)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 3731, in compute_loss
+    outputs = model(**inputs)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/models/wavlm/modeling_wavlm.py", line 1512, in forward
+    padding_mask = self._get_feature_vector_attention_mask(hidden_states.shape[1], attention_mask)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/models/wavlm/modeling_wavlm.py", line 1041, in _get_feature_vector_attention_mask
+    attention_mask = attention_mask.flip([-1]).cumsum(-1).flip([-1]).bool()
+KeyboardInterrupt

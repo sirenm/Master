@@ -1,0 +1,45 @@
+  0%|                                                                                                                                                                               | 0/360 [00:00<?, ?it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/mnt/beegfs/home/sirenm/currentmaster/WavLMTrain.py", line 87, in <module>
+    trainer.train()
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2171, in train
+    return inner_training_loop(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2531, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 3712, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/accelerate/accelerator.py", line 2246, in backward
+    loss.backward(**kwargs)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/autograd/__init__.py", line 340, in backward
+    grad_tensors_ = _make_grads(tensors, grad_tensors_, is_grads_batched=False)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/autograd/__init__.py", line 220, in _make_grads
+    torch.ones_like(out, memory_format=torch.preserve_format)
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/mnt/beegfs/home/sirenm/currentmaster/WavLMTrain.py", line 87, in <module>
+    trainer.train()
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2171, in train
+    return inner_training_loop(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2531, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 3712, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/accelerate/accelerator.py", line 2246, in backward
+    loss.backward(**kwargs)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/autograd/__init__.py", line 340, in backward
+    grad_tensors_ = _make_grads(tensors, grad_tensors_, is_grads_batched=False)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/autograd/__init__.py", line 220, in _make_grads
+    torch.ones_like(out, memory_format=torch.preserve_format)
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.

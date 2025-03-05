@@ -1,0 +1,13 @@
+{"time":"2025-02-19T14:42:00.471680329+01:00","level":"INFO","msg":"main: starting server","port-filename":"/tmp/tmp6e8r4xzs/port-2152323.txt","pid":2152323,"log-level":0,"disable-analytics":false,"shutdown-on-parent-exit":false}
+{"time":"2025-02-19T14:42:00.47700721+01:00","level":"INFO","msg":"Will exit if parent process dies.","ppid":2152323}
+{"time":"2025-02-19T14:42:00.477415567+01:00","level":"INFO","msg":"server is running","addr":{"IP":"127.0.0.1","Port":37227,"Zone":""}}
+{"time":"2025-02-19T14:42:00.596418091+01:00","level":"INFO","msg":"connection: ManageConnectionData: new connection created","id":"127.0.0.1:49742"}
+{"time":"2025-02-19T14:42:00.639752423+01:00","level":"INFO","msg":"handleInformInit: received","streamId":"k9rmtr62","id":"127.0.0.1:49742"}
+{"time":"2025-02-19T14:42:00.907566765+01:00","level":"INFO","msg":"handleInformInit: stream started","streamId":"k9rmtr62","id":"127.0.0.1:49742"}
+{"time":"2025-02-19T14:47:37.111870454+01:00","level":"INFO","msg":"handleInformTeardown: server teardown initiated","id":"127.0.0.1:49742"}
+{"time":"2025-02-19T14:47:37.112291292+01:00","level":"INFO","msg":"connection: closing","id":"127.0.0.1:49742"}
+{"time":"2025-02-19T14:47:37.112313511+01:00","level":"INFO","msg":"server is shutting down"}
+{"time":"2025-02-19T14:47:37.112381789+01:00","level":"INFO","msg":"connection: closed successfully","id":"127.0.0.1:49742"}
+{"time":"2025-02-19T14:47:37.928837576+01:00","level":"INFO","msg":"handleInformTeardown: server shutdown complete","id":"127.0.0.1:49742"}
+{"time":"2025-02-19T14:47:37.928882176+01:00","level":"INFO","msg":"connection: ManageConnectionData: connection closed","id":"127.0.0.1:49742"}
+{"time":"2025-02-19T14:47:37.928908792+01:00","level":"INFO","msg":"server is closed"}

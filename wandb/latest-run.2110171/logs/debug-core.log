@@ -1,0 +1,13 @@
+{"time":"2025-02-19T13:35:59.194379825+01:00","level":"INFO","msg":"main: starting server","port-filename":"/tmp/tmpj7f0x8vs/port-2110171.txt","pid":2110171,"log-level":0,"disable-analytics":false,"shutdown-on-parent-exit":false}
+{"time":"2025-02-19T13:35:59.201192397+01:00","level":"INFO","msg":"Will exit if parent process dies.","ppid":2110171}
+{"time":"2025-02-19T13:35:59.201704826+01:00","level":"INFO","msg":"server is running","addr":{"IP":"127.0.0.1","Port":42663,"Zone":""}}
+{"time":"2025-02-19T13:35:59.322667021+01:00","level":"INFO","msg":"connection: ManageConnectionData: new connection created","id":"127.0.0.1:54876"}
+{"time":"2025-02-19T13:35:59.371338801+01:00","level":"INFO","msg":"handleInformInit: received","streamId":"yalf63so","id":"127.0.0.1:54876"}
+{"time":"2025-02-19T13:35:59.63103637+01:00","level":"INFO","msg":"handleInformInit: stream started","streamId":"yalf63so","id":"127.0.0.1:54876"}
+{"time":"2025-02-19T13:41:38.673459375+01:00","level":"INFO","msg":"handleInformTeardown: server teardown initiated","id":"127.0.0.1:54876"}
+{"time":"2025-02-19T13:41:38.673769083+01:00","level":"INFO","msg":"connection: closing","id":"127.0.0.1:54876"}
+{"time":"2025-02-19T13:41:38.67379076+01:00","level":"INFO","msg":"server is shutting down"}
+{"time":"2025-02-19T13:41:38.673924059+01:00","level":"INFO","msg":"connection: closed successfully","id":"127.0.0.1:54876"}
+{"time":"2025-02-19T13:41:39.528465606+01:00","level":"INFO","msg":"handleInformTeardown: server shutdown complete","id":"127.0.0.1:54876"}
+{"time":"2025-02-19T13:41:39.528513899+01:00","level":"INFO","msg":"connection: ManageConnectionData: connection closed","id":"127.0.0.1:54876"}
+{"time":"2025-02-19T13:41:39.528538795+01:00","level":"INFO","msg":"server is closed"}

@@ -1,0 +1,15 @@
+{"time":"2025-02-19T14:42:00.678714702+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/mnt/beegfs/home/sirenm/currentmaster/wandb/run-20250219_144200-k9rmtr62/logs/debug-core.log"}
+{"time":"2025-02-19T14:42:00.906260696+01:00","level":"INFO","msg":"created new stream","id":"k9rmtr62"}
+{"time":"2025-02-19T14:42:00.906990156+01:00","level":"INFO","msg":"stream: started","id":"k9rmtr62"}
+{"time":"2025-02-19T14:42:00.907541775+01:00","level":"INFO","msg":"sender: started","stream_id":"k9rmtr62"}
+{"time":"2025-02-19T14:42:00.907006917+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"k9rmtr62"}
+{"time":"2025-02-19T14:42:00.907430203+01:00","level":"INFO","msg":"handler: started","stream_id":"k9rmtr62"}
+{"time":"2025-02-19T14:42:01.267185224+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-19T14:47:37.112369061+01:00","level":"INFO","msg":"stream: closing","id":"k9rmtr62"}
+{"time":"2025-02-19T14:47:37.112436871+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-19T14:47:37.114460238+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-19T14:47:37.726908244+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-19T14:47:37.924284698+01:00","level":"INFO","msg":"handler: closed","stream_id":"k9rmtr62"}
+{"time":"2025-02-19T14:47:37.924320951+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"k9rmtr62"}
+{"time":"2025-02-19T14:47:37.924384681+01:00","level":"INFO","msg":"sender: closed","stream_id":"k9rmtr62"}
+{"time":"2025-02-19T14:47:37.926862669+01:00","level":"INFO","msg":"stream: closed","id":"k9rmtr62"}

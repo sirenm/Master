@@ -1,0 +1,13 @@
+  0%|                                                                                                                                                                               | 0/933 [00:00<?, ?it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+ 54%|████████████████████████████████████████████████████████████████████████████████████████▍                                                                            | 500/933 [02:46<01:53,  3.80it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(                                                                                                                                                                                            
+{'eval_loss': 1.6312776803970337, 'eval_runtime': 32.646, 'eval_samples_per_second': 113.98, 'eval_steps_per_second': 14.274, 'epoch': 1.0}
+{'loss': 1.7346, 'grad_norm': 3.9373960494995117, 'learning_rate': 9.281886387995713e-06, 'epoch': 1.61}
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊| 932/933 [05:13<00:00,  3.89it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(                                                                                                                                                                                            
+{'eval_loss': 1.4857814311981201, 'eval_runtime': 32.6925, 'eval_samples_per_second': 113.818, 'eval_steps_per_second': 14.254, 'epoch': 2.0}
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 933/933 [05:47<00:00,  2.68it/s]
+                                                                                                                                                                                                            
+{'eval_loss': 1.4366117715835571, 'eval_runtime': 32.4873, 'eval_samples_per_second': 114.537, 'eval_steps_per_second': 14.344, 'epoch': 3.0}
+{'train_runtime': 350.8379, 'train_samples_per_second': 31.818, 'train_steps_per_second': 2.659, 'train_loss': 1.6271073810540595, 'epoch': 3.0}

@@ -1,0 +1,15 @@
+{"time":"2025-03-03T21:18:54.397865756+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/mnt/beegfs/home/sirenm/currentmaster/wandb/run-20250303_211853-p70avg7p/logs/debug-core.log"}
+{"time":"2025-03-03T21:18:54.633026599+01:00","level":"INFO","msg":"created new stream","id":"p70avg7p"}
+{"time":"2025-03-03T21:18:54.633783112+01:00","level":"INFO","msg":"stream: started","id":"p70avg7p"}
+{"time":"2025-03-03T21:18:54.635208892+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"p70avg7p"}
+{"time":"2025-03-03T21:18:54.635700248+01:00","level":"INFO","msg":"handler: started","stream_id":"p70avg7p"}
+{"time":"2025-03-03T21:18:54.635763559+01:00","level":"INFO","msg":"sender: started","stream_id":"p70avg7p"}
+{"time":"2025-03-03T21:18:54.98764206+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-03T21:28:37.901559198+01:00","level":"INFO","msg":"stream: closing","id":"p70avg7p"}
+{"time":"2025-03-03T21:28:37.901696392+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-03T21:28:37.903347456+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-03T21:28:38.514572075+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-03T21:28:38.909977431+01:00","level":"INFO","msg":"handler: closed","stream_id":"p70avg7p"}
+{"time":"2025-03-03T21:28:38.910082749+01:00","level":"INFO","msg":"sender: closed","stream_id":"p70avg7p"}
+{"time":"2025-03-03T21:28:38.910076073+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"p70avg7p"}
+{"time":"2025-03-03T21:28:38.911986582+01:00","level":"INFO","msg":"stream: closed","id":"p70avg7p"}

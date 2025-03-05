@@ -1,0 +1,80 @@
+  0%|                                                                                                                                                                               | 0/360 [00:00<?, ?it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+  6%|█████████▋                                                                                                                                                            | 21/360 [00:05<00:47,  7.08it/s]Traceback (most recent call last):
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/feature_extraction_utils.py", line 193, in convert_to_tensors
+    tensor = as_tensor(value)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/feature_extraction_utils.py", line 142, in as_tensor
+    value = np.array(value)
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 2 dimensions. The detected shape was (2, 55523) + inhomogeneous part.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/beegfs/home/sirenm/currentmaster/WavLMTrain.py", line 87, in <module>
+    trainer.train()
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2171, in train
+    return inner_training_loop(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2480, in _inner_training_loop
+    batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 5153, in get_batch_samples
+    batch_samples += [next(epoch_iterator)]
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/accelerate/data_loader.py", line 574, in __iter__
+    next_batch = next(dataloader_iter)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 708, in __next__
+    data = self._next_data()
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 764, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+    return self.collate_fn(data)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer_utils.py", line 848, in __call__
+    return self.data_collator(features)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/data/data_collator.py", line 271, in __call__
+    batch = pad_without_fast_tokenizer_warning(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/data/data_collator.py", line 59, in pad_without_fast_tokenizer_warning
+    return tokenizer.pad(*pad_args, **pad_kwargs)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/feature_extraction_sequence_utils.py", line 225, in pad
+    return BatchFeature(batch_outputs, tensor_type=return_tensors)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/feature_extraction_utils.py", line 79, in __init__
+    self.convert_to_tensors(tensor_type=tensor_type)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/feature_extraction_utils.py", line 199, in convert_to_tensors
+    raise ValueError(
+ValueError: Unable to create tensor, you should probably activate padding with 'padding=True' to have batched tensors with the same length.
+Traceback (most recent call last):
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/feature_extraction_utils.py", line 193, in convert_to_tensors
+    tensor = as_tensor(value)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/feature_extraction_utils.py", line 142, in as_tensor
+    value = np.array(value)
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 2 dimensions. The detected shape was (2, 55523) + inhomogeneous part.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/beegfs/home/sirenm/currentmaster/WavLMTrain.py", line 87, in <module>
+    trainer.train()
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2171, in train
+    return inner_training_loop(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 2480, in _inner_training_loop
+    batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer.py", line 5153, in get_batch_samples
+    batch_samples += [next(epoch_iterator)]
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/accelerate/data_loader.py", line 574, in __iter__
+    next_batch = next(dataloader_iter)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 708, in __next__
+    data = self._next_data()
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 764, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+    return self.collate_fn(data)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/trainer_utils.py", line 848, in __call__
+    return self.data_collator(features)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/data/data_collator.py", line 271, in __call__
+    batch = pad_without_fast_tokenizer_warning(
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/data/data_collator.py", line 59, in pad_without_fast_tokenizer_warning
+    return tokenizer.pad(*pad_args, **pad_kwargs)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/feature_extraction_sequence_utils.py", line 225, in pad
+    return BatchFeature(batch_outputs, tensor_type=return_tensors)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/feature_extraction_utils.py", line 79, in __init__
+    self.convert_to_tensors(tensor_type=tensor_type)
+  File "/home/stud/sirenm/.local/lib/python3.10/site-packages/transformers/feature_extraction_utils.py", line 199, in convert_to_tensors
+    raise ValueError(
+ValueError: Unable to create tensor, you should probably activate padding with 'padding=True' to have batched tensors with the same length.

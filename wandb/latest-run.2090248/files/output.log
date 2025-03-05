@@ -1,0 +1,15 @@
+  0%|                                                                                                                                                                               | 0/900 [00:00<?, ?it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+ 56%|███████████████████████████████████████████████████████████████████████████████████████████▋                                                                         | 500/900 [01:49<01:08,  5.88it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(                                                                                                                                                                                            
+{'eval_loss': 1.9054938554763794, 'eval_runtime': 10.6926, 'eval_samples_per_second': 67.336, 'eval_steps_per_second': 8.417, 'epoch': 1.0}
+{'eval_loss': 1.6202481985092163, 'eval_runtime': 10.767, 'eval_samples_per_second': 66.871, 'eval_steps_per_second': 8.359, 'epoch': 2.0}
+{'loss': 1.8296, 'grad_norm': 3.4973154067993164, 'learning_rate': 8.888888888888888e-06, 'epoch': 2.78}
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 900/900 [03:20<00:00,  6.38it/s]/home/stud/sirenm/.local/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(                                                                                                                                                                                            
+{'eval_loss': 1.4575127363204956, 'eval_runtime': 10.8054, 'eval_samples_per_second': 66.633, 'eval_steps_per_second': 8.329, 'epoch': 3.0}
+{'eval_loss': 1.3608872890472412, 'eval_runtime': 10.3431, 'eval_samples_per_second': 69.611, 'eval_steps_per_second': 8.701, 'epoch': 4.0}
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 900/900 [03:33<00:00,  4.22it/s]
+                                                                                                                                                                                                            
+{'eval_loss': 1.3090044260025024, 'eval_runtime': 10.383, 'eval_samples_per_second': 69.344, 'eval_steps_per_second': 8.668, 'epoch': 5.0}
+{'train_runtime': 215.5869, 'train_samples_per_second': 16.699, 'train_steps_per_second': 4.175, 'train_loss': 1.6581081136067708, 'epoch': 5.0}

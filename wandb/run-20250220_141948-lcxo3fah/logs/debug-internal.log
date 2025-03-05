@@ -1,0 +1,15 @@
+{"time":"2025-02-20T14:19:49.511058115+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/mnt/beegfs/home/sirenm/currentmaster/wandb/run-20250220_141948-lcxo3fah/logs/debug-core.log"}
+{"time":"2025-02-20T14:19:49.739991157+01:00","level":"INFO","msg":"created new stream","id":"lcxo3fah"}
+{"time":"2025-02-20T14:19:49.740841321+01:00","level":"INFO","msg":"stream: started","id":"lcxo3fah"}
+{"time":"2025-02-20T14:19:49.741518317+01:00","level":"INFO","msg":"sender: started","stream_id":"lcxo3fah"}
+{"time":"2025-02-20T14:19:49.740857158+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"lcxo3fah"}
+{"time":"2025-02-20T14:19:49.741222739+01:00","level":"INFO","msg":"handler: started","stream_id":"lcxo3fah"}
+{"time":"2025-02-20T14:19:50.060472686+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-20T14:28:51.06107815+01:00","level":"INFO","msg":"stream: closing","id":"lcxo3fah"}
+{"time":"2025-02-20T14:28:51.061157806+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-20T14:28:51.06321811+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-20T14:28:51.914297515+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-20T14:28:52.110382178+01:00","level":"INFO","msg":"handler: closed","stream_id":"lcxo3fah"}
+{"time":"2025-02-20T14:28:52.110452252+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"lcxo3fah"}
+{"time":"2025-02-20T14:28:52.110471108+01:00","level":"INFO","msg":"sender: closed","stream_id":"lcxo3fah"}
+{"time":"2025-02-20T14:28:52.112090921+01:00","level":"INFO","msg":"stream: closed","id":"lcxo3fah"}

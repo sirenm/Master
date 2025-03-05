@@ -1,0 +1,15 @@
+{"time":"2025-02-19T10:04:23.429789013+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/mnt/beegfs/home/sirenm/currentmaster/wandb/run-20250219_100422-f6rdupmz/logs/debug-core.log"}
+{"time":"2025-02-19T10:04:23.549206226+01:00","level":"INFO","msg":"created new stream","id":"f6rdupmz"}
+{"time":"2025-02-19T10:04:23.549719453+01:00","level":"INFO","msg":"stream: started","id":"f6rdupmz"}
+{"time":"2025-02-19T10:04:23.549743562+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"f6rdupmz"}
+{"time":"2025-02-19T10:04:23.550180009+01:00","level":"INFO","msg":"sender: started","stream_id":"f6rdupmz"}
+{"time":"2025-02-19T10:04:23.5502948+01:00","level":"INFO","msg":"handler: started","stream_id":"f6rdupmz"}
+{"time":"2025-02-19T10:04:23.891340161+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-19T10:04:26.080538461+01:00","level":"INFO","msg":"stream: closing","id":"f6rdupmz"}
+{"time":"2025-02-19T10:04:26.081045946+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-19T10:04:26.082525816+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-19T10:04:26.726611904+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-19T10:04:26.918880339+01:00","level":"INFO","msg":"handler: closed","stream_id":"f6rdupmz"}
+{"time":"2025-02-19T10:04:26.918958355+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"f6rdupmz"}
+{"time":"2025-02-19T10:04:26.918976111+01:00","level":"INFO","msg":"sender: closed","stream_id":"f6rdupmz"}
+{"time":"2025-02-19T10:04:26.921428494+01:00","level":"INFO","msg":"stream: closed","id":"f6rdupmz"}

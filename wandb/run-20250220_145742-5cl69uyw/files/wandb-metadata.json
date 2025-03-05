@@ -1,0 +1,80 @@
+{
+  "os":  "Linux-5.15.0-130-generic-x86_64-with-glibc2.35",
+  "python":  "CPython 3.10.12",
+  "startedAt":  "2025-02-20T13:57:43.339759Z",
+  "program":  "/mnt/beegfs/home/sirenm/currentmaster/WavLMTrain.py",
+  "codePath":  "WavLMTrain.py",
+  "email":  "s.melkevig@stud.uis.no",
+  "root":  "/mnt/beegfs/home/sirenm/currentmaster",
+  "host":  "gorina6",
+  "executable":  "/usr/bin/python3",
+  "codePathLocal":  "WavLMTrain.py",
+  "cpu_count":  20,
+  "cpu_count_logical":  40,
+  "gpu":  "Tesla V100-PCIE-32GB",
+  "gpu_count":  8,
+  "disk":  {
+    "/":  {
+      "total":  "127937503232",
+      "used":  "20708921344"
+    }
+  },
+  "memory":  {
+    "total":  "540917215232"
+  },
+  "cpu":  {
+    "count":  20,
+    "countLogical":  40
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "Tesla V100-PCIE-32GB",
+      "memoryTotal":  "34359738368",
+      "cudaCores":  5120,
+      "architecture":  "Volta"
+    },
+    {
+      "name":  "Tesla V100-PCIE-32GB",
+      "memoryTotal":  "34359738368",
+      "cudaCores":  5120,
+      "architecture":  "Volta"
+    },
+    {
+      "name":  "Tesla V100-PCIE-32GB",
+      "memoryTotal":  "34359738368",
+      "cudaCores":  5120,
+      "architecture":  "Volta"
+    },
+    {
+      "name":  "Tesla V100-PCIE-32GB",
+      "memoryTotal":  "34359738368",
+      "cudaCores":  5120,
+      "architecture":  "Volta"
+    },
+    {
+      "name":  "Tesla V100-PCIE-32GB",
+      "memoryTotal":  "34359738368",
+      "cudaCores":  5120,
+      "architecture":  "Volta"
+    },
+    {
+      "name":  "Tesla V100-PCIE-32GB",
+      "memoryTotal":  "34359738368",
+      "cudaCores":  5120,
+      "architecture":  "Volta"
+    },
+    {
+      "name":  "Tesla V100-PCIE-32GB",
+      "memoryTotal":  "34359738368",
+      "cudaCores":  5120,
+      "architecture":  "Volta"
+    },
+    {
+      "name":  "Tesla V100-PCIE-32GB",
+      "memoryTotal":  "34359738368",
+      "cudaCores":  5120,
+      "architecture":  "Volta"
+    }
+  ],
+  "cudaVersion":  "12.4"
+}

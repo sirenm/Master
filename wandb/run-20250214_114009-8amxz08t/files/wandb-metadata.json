@@ -1,0 +1,40 @@
+{
+  "os": "macOS-15.2-arm64-arm-64bit-Mach-O",
+  "python": "CPython 3.13.1",
+  "startedAt": "2025-02-14T10:40:10.892488Z",
+  "program": "/Users/sirenmelkevig/Repositories/Master/WavLMTrain.py",
+  "codePath": "WavLMTrain.py",
+  "email": "s.melkevig@stud.uis.no",
+  "root": "/Users/sirenmelkevig/Repositories/Master",
+  "host": "Siren-sin-MacBook-Pro.local",
+  "executable": "/Users/sirenmelkevig/Repositories/Master/environment/bin/python",
+  "codePathLocal": "WavLMTrain.py",
+  "cpu_count": 8,
+  "cpu_count_logical": 8,
+  "disk": {
+    "/": {
+      "total": "494384795648",
+      "used": "70673063936"
+    },
+    "/System/Volumes/Data": {
+      "total": "494384795648",
+      "used": "70673063936"
+    }
+  },
+  "memory": {
+    "total": "8589934592"
+  },
+  "cpu": {
+    "count": 8,
+    "countLogical": 8
+  },
+  "apple": {
+    "name": "Apple M2",
+    "ecpuCores": 4,
+    "pcpuCores": 4,
+    "gpuCores": 10,
+    "memoryGb": 8,
+    "swapTotalBytes": "1073741824",
+    "ramTotalBytes": "8589934592"
+  }
+}
