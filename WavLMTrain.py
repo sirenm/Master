@@ -1,3 +1,4 @@
+import pandas as pd
 import torch
 import torchaudio
 import torchaudio.transforms as T
@@ -26,17 +27,12 @@ class EmotionDataset(Dataset):
     def __getitem__(self, idx):
         audio_path = self.file_paths[idx]
         label = self.labels[idx]
-        waveform, sample_rate = torchaudio.load(audio_path)
-        if sample_rate != 16000:
-            waveform = torchaudio.transforms.Resample(orig_freq=sample_rate, new_freq=16000)(waveform)
-        inputs = feature_extractor(waveform.squeeze(0), sampling_rate=16000, return_tensors="pt", padding=True)
-
         return {
-            "input_values": inputs["input_values"].flatten().squeeze(0),
+            "input_values": audio_path.flatten().squeeze(0),
             "labels": torch.tensor(label, dtype=torch.long)
         }
 
-data_dir = "CremaTrain"
+data_dir = "train.csv"
 label_map = {
     "ANG": 0,
     "DIS": 1,
@@ -49,30 +45,26 @@ label_map = {
 labels = []
 files = []
 
-for filename in os.listdir(data_dir):
-    if os.path.isfile(os.path.join(data_dir, filename)):
-        full_path = os.path.join(data_dir, filename)
-        file_name_list = filename.split('_')
-        emotion = file_name_list[2]
-        if emotion in label_map:
-            labels.append(label_map[emotion])
-            files.append(full_path)
+df = pd.read_csv(data_dir)
+for index, value in df.iterrows():
+    emotion = value["emotion"]
+    if emotion in label_map:
+            labels.append(emotion)
+            files.append(value["Features"])
 
 dataset = EmotionDataset(files, labels)
 
-eval_data_dir = "CremaEvaluation"
+eval_data_dir = "eval.csv"
 
 eval_labels = []
 eval_files = []
 
-for filename in os.listdir(eval_data_dir):
-    if os.path.isfile(os.path.join(eval_data_dir, filename)):
-        full_path = os.path.join(eval_data_dir, filename)
-        file_name_list = filename.split('_')
-        emotion = file_name_list[2]
-        if emotion in label_map:
-            eval_labels.append(label_map[emotion])
-            eval_files.append(full_path)
+df = pd.read_csv(eval_data_dir)
+for index, value in df.iterrows():
+    emotion = value["emotion"]
+    if emotion in label_map:
+            labels.append(emotion)
+            files.append(value["Features"])
 
 eval_dataset = EmotionDataset(eval_files, eval_labels)
 
