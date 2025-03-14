@@ -126,11 +126,11 @@ class DatasetCrema:
         if len(filenamevibes) == 4:
             emotion = filenamevibes[2]
             if type == "train":
-                self.train_csv.loc[len(self.train_csv)] = [filename, emotion, inputs["input_values"].flatten().squeeze(0)]
+                self.train_csv.loc[len(self.train_csv)] = [filename, emotion, inputs["input_values"].flatten().squeeze(0).tolist()]
             if type == "test":
-                self.test_csv.loc[len(self.test_csv)] = [filename, emotion, inputs["input_values"].flatten().squeeze(0)]
+                self.test_csv.loc[len(self.test_csv)] = [filename, emotion, inputs["input_values"].flatten().squeeze(0).tolist()]
             if type == "eval":
-                self.eval_csv.loc[len(self.eval_csv)] = [filename, emotion, inputs["input_values"].flatten().squeeze(0)]
+                self.eval_csv.loc[len(self.eval_csv)] = [filename, emotion, inputs["input_values"].flatten().squeeze(0).tolist()]
 
     def divide_dataset(self):
         file_info = []

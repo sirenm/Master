@@ -1,7 +1,9 @@
 /TrainedModels
 /testenv
 /environment
-/Crema
 /CremaEvaluation
 /CremaTest
 /CremaTrain
+train.csv
+eval.csv
+test.csv

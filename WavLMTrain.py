@@ -1,3 +1,4 @@
+import ast
 import pandas as pd
 import torch
 import torchaudio
@@ -28,7 +29,7 @@ class EmotionDataset(Dataset):
         audio_path = self.file_paths[idx]
         label = self.labels[idx]
         return {
-            "input_values": audio_path.flatten().squeeze(0),
+            "input_values": audio_path,
             "labels": torch.tensor(label, dtype=torch.long)
         }
 
@@ -64,7 +65,7 @@ for index, value in df.iterrows():
     emotion = value["emotion"]
     if emotion in label_map:
             labels.append(emotion)
-            files.append(value["Features"])
+            files.append(df["Features"].apply(lambda x: torch.tensor(ast.literal_eval(x))))
 
 eval_dataset = EmotionDataset(eval_files, eval_labels)
 
