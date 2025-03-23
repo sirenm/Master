@@ -1,0 +1,84 @@
+{
+  "os": "Linux-5.15.0-130-generic-x86_64-with-glibc2.35",
+  "python": "CPython 3.11.11",
+  "startedAt": "2025-03-16T16:45:50.828540Z",
+  "program": "/mnt/beegfs/home/sirenm/Master/WavLMTrain.py",
+  "codePath": "WavLMTrain.py",
+  "git": {
+    "remote": "git@github.com:sirenm/Master.git",
+    "commit": "a2465e03604fa7511cd3e3ca830389fefed9ee02"
+  },
+  "email": "s.melkevig@stud.uis.no",
+  "root": "/mnt/beegfs/home/sirenm/Master",
+  "host": "gorina6",
+  "executable": "/home/stud/sirenm/miniconda3/envs/environment/bin/python3",
+  "codePathLocal": "WavLMTrain.py",
+  "cpu_count": 20,
+  "cpu_count_logical": 40,
+  "gpu": "Tesla V100-PCIE-32GB",
+  "gpu_count": 8,
+  "disk": {
+    "/": {
+      "total": "127937503232",
+      "used": "20727275520"
+    }
+  },
+  "memory": {
+    "total": "540917215232"
+  },
+  "cpu": {
+    "count": 20,
+    "countLogical": 40
+  },
+  "gpu_nvidia": [
+    {
+      "name": "Tesla V100-PCIE-32GB",
+      "memoryTotal": "34359738368",
+      "cudaCores": 5120,
+      "architecture": "Volta"
+    },
+    {
+      "name": "Tesla V100-PCIE-32GB",
+      "memoryTotal": "34359738368",
+      "cudaCores": 5120,
+      "architecture": "Volta"
+    },
+    {
+      "name": "Tesla V100-PCIE-32GB",
+      "memoryTotal": "34359738368",
+      "cudaCores": 5120,
+      "architecture": "Volta"
+    },
+    {
+      "name": "Tesla V100-PCIE-32GB",
+      "memoryTotal": "34359738368",
+      "cudaCores": 5120,
+      "architecture": "Volta"
+    },
+    {
+      "name": "Tesla V100-PCIE-32GB",
+      "memoryTotal": "34359738368",
+      "cudaCores": 5120,
+      "architecture": "Volta"
+    },
+    {
+      "name": "Tesla V100-PCIE-32GB",
+      "memoryTotal": "34359738368",
+      "cudaCores": 5120,
+      "architecture": "Volta"
+    },
+    {
+      "name": "Tesla V100-PCIE-32GB",
+      "memoryTotal": "34359738368",
+      "cudaCores": 5120,
+      "architecture": "Volta"
+    },
+    {
+      "name": "Tesla V100-PCIE-32GB",
+      "memoryTotal": "34359738368",
+      "cudaCores": 5120,
+      "architecture": "Volta"
+    }
+  ],
+  "cudaVersion": "12.4"
+}

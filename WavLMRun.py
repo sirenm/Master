@@ -8,6 +8,7 @@ from torch.utils.data import Dataset, DataLoader
 from transformers import WavLMForSequenceClassification, Trainer, TrainingArguments
 import wandb
 from sklearn.metrics import f1_score
+import pandas as pd
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu") 
@@ -33,26 +34,27 @@ class EmotionModel():
     def __getitem__(self, idx):
         audio_path = self.file_paths[idx]
         label = self.labels[idx]
-        waveform, sample_rate = torchaudio.load(audio_path)
+        """ waveform, sample_rate = torchaudio.load(audio_path)
         if sample_rate != 16000:
            resampler = torchaudio.transforms.Resample(orig_freq=sample_rate, new_freq=16000)
            waveform = resampler(waveform)
         
-        waveform = waveform.flatten().squeeze(0)
+        waveform = waveform.flatten().squeeze(0) """
 
-        transcription_inputs = transcription_processor(waveform, sampling_rate=16000, return_tensors="pt")
-        transcription_inputs = {key: val.to(device) for key, val in transcription_inputs.items()}
+        """ transcription_inputs = transcription_processor(waveform, sampling_rate=16000, return_tensors="pt")
+        transcription_inputs = {key: val.to(device) for key, val in transcription_inputs.items()} """
         with torch.no_grad():
-            logits = transcription_model(**transcription_inputs).logits
-            print("Shape for waveform values: ", waveform.shape)
-            inputs = feature_extractor(waveform, sampling_rate=16000, return_tensors="pt", padding=True)
-            input_values = inputs["input_values"].to(device)
-        transcription_predicted_ids = torch.argmax(logits, dim=-1)
+            """ logits = transcription_model(**transcription_inputs).logits
+            print("Shape for waveform values: ", waveform.shape) """
+            """ inputs = feature_extractor(audio_path, sampling_rate=16000, return_tensors="pt", padding=True) """
+            input_values = audio_path
+        """ transcription_predicted_ids = torch.argmax(logits, dim=-1) """
 
 
-        transcription = transcription_processor.batch_decode(transcription_predicted_ids)[0]
+        """ transcription = transcription_processor.batch_decode(transcription_predicted_ids)[0] """
 
         with torch.no_grad():
+            input_values = torch.tensor(audio_path, dtype=torch.float32).unsqueeze(0).to(device)
             print("Shape for input values: ", input_values.shape)
             emotion_logits = emotion_model(input_values).logits
             predicted_emotion_class = torch.argmax(emotion_logits, dim=-1).item()
@@ -64,13 +66,13 @@ class EmotionModel():
 
         self.actual_predictions.append(predicted_emotion_class)
 
-        print("Transcription:", transcription)
+        """ print("Transcription:", transcription) """
         print("Predicted Emotion Class:", predicted_emotion_class)
         print("Actual Emotion Class:", label)
         self.total_predictions += 1
 
 
-data_dir = "CremaTest"
+data_dir = "test.json"
 label_map = {
     "ANG": 0,
     "DIS": 1,
@@ -80,19 +82,15 @@ label_map = {
     "NEU": 5
 }
 
-labels = []
-files = []
+df = pd.read_json(data_dir)
+df = df[df["emotion"].isin(label_map)]
 
-for filename in os.listdir(data_dir):
-    if os.path.isfile(os.path.join(data_dir, filename)):
-        full_path = os.path.join(data_dir, filename)
-        file_name_list = filename.split('_')
-        emotion = file_name_list[2]
-        if emotion in label_map:
-            labels.append(label_map[emotion])
-            files.append(full_path)
+labels = df["emotion"].map(label_map).tolist()
+
+files = df["Features"].tolist()
+
 emotionmodel = EmotionModel(files, labels)
-print(len(files))
+
 for index in range(len(files)):
     print(index)
     emotionmodel.__getitem__(index)
@@ -102,3 +100,12 @@ print("Correct prediction:", emotionmodel.correct_prediction)
 print("Wrong predictions:", emotionmodel.wrong_prediction)
 print("Total predictions:", emotionmodel.total_predictions)
 print("f1 score:", f1)
+
+results_data = {
+    "Actual Labels": emotionmodel.labels,
+    "Predicted Labels": emotionmodel.actual_predictions
+}
+
+df_results = pd.DataFrame(results_data)
+
+df_results.to_csv("results.csv", index=False)

@@ -1,9 +1,17 @@
 /TrainedModels
+/TrainedModelsLarge
+/wandb
 /testenv
 /environment
 /CremaEvaluation
 /CremaTest
 /CremaTrain
+/results
 train.csv
 eval.csv
 test.csv
+dataset.json
+eval.json
+test.json
+train.json
+results.csv

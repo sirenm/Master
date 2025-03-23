@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 import pandas as pd
 import torchaudio
 from transformers import Wav2Vec2FeatureExtractor
+import json
 
 CREMAFIlECOUNT = 7442
 
@@ -109,9 +110,9 @@ class DatasetCrema:
         self.train_folder = "CremaTrain"
         self.test_folder = "CremaTest"
         self.eval_folder = "CremaEvaluation"
-        self.train_csv = pd.DataFrame(columns=["filename", "emotion", "Features"])
-        self.test_csv = pd.DataFrame(columns=["filename", "emotion", "Features"])
-        self.eval_csv = pd.DataFrame(columns=["filename", "emotion", "Features"])
+        self.train_csv = []
+        self.test_csv = []
+        self.eval_csv = []
         os.makedirs(self.train_folder, exist_ok=True)
         os.makedirs(self.test_folder, exist_ok=True)
         os.makedirs(self.eval_folder, exist_ok=True)
@@ -121,16 +122,27 @@ class DatasetCrema:
         waveform, sample_rate = torchaudio.load(filename)
         if sample_rate != 16000:
             waveform = torchaudio.transforms.Resample(orig_freq=sample_rate, new_freq=16000)(waveform)
-        inputs = feature_extractor(waveform.squeeze(0), sampling_rate=16000, return_tensors="pt", padding=True)
+        inputs = feature_extractor(waveform.squeeze(0), sampling_rate=16000, return_tensors="pt", padding="max_length",
+    truncation=True, max_length=39506)
         filenamevibes = filename.split('_')
         if len(filenamevibes) == 4:
             emotion = filenamevibes[2]
+            data_entry = {
+                "filename": filename,
+                "emotion": emotion,
+                "Features": inputs["input_values"].flatten().squeeze(0).tolist(),
+            }
+
             if type == "train":
-                self.train_csv.loc[len(self.train_csv)] = [filename, emotion, inputs["input_values"].flatten().squeeze(0).tolist()]
-            if type == "test":
-                self.test_csv.loc[len(self.test_csv)] = [filename, emotion, inputs["input_values"].flatten().squeeze(0).tolist()]
-            if type == "eval":
-                self.eval_csv.loc[len(self.eval_csv)] = [filename, emotion, inputs["input_values"].flatten().squeeze(0).tolist()]
+                print("train")
+                self.train_csv.append(data_entry)
+            elif type == "test":
+                print("test")
+                self.test_csv.append(data_entry)
+            elif type == "eval":
+                print("eval")
+                self.eval_csv.append(data_entry)
+
 
     def divide_dataset(self):
         file_info = []
@@ -157,10 +169,16 @@ class DatasetCrema:
         for file in test["filename"]:
             self.copy_files(os.path.join(self.dataset_filepath, file), "test")
         
-        self.train_csv.to_csv("train.csv")
-        self.test_csv.to_csv("test.csv")
-        self.eval_csv.to_csv("eval.csv")
-        df.to_csv("dataset.csv")
+        with open("train.json", "w") as f:
+            json.dump(self.train_csv, f)
+
+        with open("test.json", "w") as f:
+            json.dump(self.test_csv, f)
+
+        with open("eval.json", "w") as f:
+            json.dump(self.eval_csv, f)
+
+        df.to_json("dataset.json", orient="records")
 
 
 

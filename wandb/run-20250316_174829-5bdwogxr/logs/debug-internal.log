@@ -1,0 +1,15 @@
+{"time":"2025-03-16T17:48:30.119342775+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/mnt/beegfs/home/sirenm/Master/wandb/run-20250316_174829-5bdwogxr/logs/debug-core.log"}
+{"time":"2025-03-16T17:48:30.235597286+01:00","level":"INFO","msg":"created new stream","id":"5bdwogxr"}
+{"time":"2025-03-16T17:48:30.236530791+01:00","level":"INFO","msg":"stream: started","id":"5bdwogxr"}
+{"time":"2025-03-16T17:48:30.236544066+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"5bdwogxr"}
+{"time":"2025-03-16T17:48:30.236551444+01:00","level":"INFO","msg":"handler: started","stream_id":"5bdwogxr"}
+{"time":"2025-03-16T17:48:30.236573051+01:00","level":"INFO","msg":"sender: started","stream_id":"5bdwogxr"}
+{"time":"2025-03-16T17:48:30.499876906+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-16T17:48:36.928123844+01:00","level":"INFO","msg":"stream: closing","id":"5bdwogxr"}
+{"time":"2025-03-16T17:48:36.928183286+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-16T17:48:36.930342025+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-16T17:48:37.664067627+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-16T17:48:37.89743669+01:00","level":"INFO","msg":"handler: closed","stream_id":"5bdwogxr"}
+{"time":"2025-03-16T17:48:37.897501448+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"5bdwogxr"}
+{"time":"2025-03-16T17:48:37.897516253+01:00","level":"INFO","msg":"sender: closed","stream_id":"5bdwogxr"}
+{"time":"2025-03-16T17:48:37.899665157+01:00","level":"INFO","msg":"stream: closed","id":"5bdwogxr"}

@@ -225,7 +225,7 @@ def plot_intensity(datasetpath):
     values = [value for value in dictionary.values()]
     return labels, values """
 
-def plot_emotion(datasetpath):
+""" def plot_emotion(datasetpath):
     dictionary = dict()
     df = pd.read_csv(datasetpath)
     for index, value in df.iterrows():
@@ -431,7 +431,7 @@ fig.update_layout(
     height=800 
 )
 
-fig.show() 
+fig.show()  """
 
 
 """ label_map = {
@@ -456,3 +456,31 @@ plt.title('Confusion Matrix', size=20)
 plt.xlabel('Predicted Labels', size=14)
 plt.ylabel('Actual Labels', size=14)
 plt.show() """
+
+label_map = {
+    "ANG": 0,
+    "DIS": 1,
+    "FEA": 2,
+    "SAD": 3,
+    "HAP": 4,
+    "NEU": 5
+}
+
+emotions = [emotion for emotion, _ in sorted(label_map.items(), key=lambda item: item[1])]
+
+# Load data and compute confusion matrix
+file_path = 'results.csv'
+df = pd.read_csv(file_path)
+y_pred_labels = df['Predicted Labels']
+y_test_labels = df['Actual Labels']
+
+cm = confusion_matrix(y_test_labels, y_pred_labels)
+
+# Plot the confusion matrix with emotion labels
+plt.figure(figsize=(12, 10))
+sns.heatmap(cm, linecolor='white', cmap='Blues', linewidth=1, annot=True, fmt='d',
+            xticklabels=emotions, yticklabels=emotions)
+plt.title('Confusion Matrix', size=20)
+plt.xlabel('Predicted Labels', size=14)
+plt.ylabel('Actual Labels', size=14)
+plt.show()

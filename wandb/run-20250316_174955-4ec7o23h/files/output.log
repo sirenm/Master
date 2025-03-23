@@ -1,0 +1,65 @@
+  0%|                                                                                                                              | 0/3640 [00:00<?, ?it/s]Traceback (most recent call last):
+inside 0
+
+inside 0
+
+inside 4
+
+inside 2
+
+inside 2
+
+inside 3
+
+inside 3
+
+inside 2
+
+inside 4
+
+inside 5
+
+inside 1
+
+inside 3
+
+inside 0
+
+inside 3
+
+inside 3
+
+inside 2
+  File "/mnt/beegfs/home/sirenm/Master/WavLMTrain.py", line 87, in <module>
+    trainer.train()
+  File "/home/stud/sirenm/miniconda3/envs/environment/lib/python3.11/site-packages/transformers/trainer.py", line 2241, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud/sirenm/miniconda3/envs/environment/lib/python3.11/site-packages/transformers/trainer.py", line 2500, in _inner_training_loop
+    batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud/sirenm/miniconda3/envs/environment/lib/python3.11/site-packages/transformers/trainer.py", line 5180, in get_batch_samples
+    batch_samples += [next(epoch_iterator)]
+                      ^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud/sirenm/miniconda3/envs/environment/lib/python3.11/site-packages/accelerate/data_loader.py", line 566, in __iter__
+    current_batch = next(dataloader_iter)
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud/sirenm/miniconda3/envs/environment/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 701, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/stud/sirenm/miniconda3/envs/environment/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 757, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud/sirenm/miniconda3/envs/environment/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+    return self.collate_fn(data)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud/sirenm/miniconda3/envs/environment/lib/python3.11/site-packages/transformers/trainer_utils.py", line 848, in __call__
+    return self.data_collator(features)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud/sirenm/miniconda3/envs/environment/lib/python3.11/site-packages/transformers/data/data_collator.py", line 92, in default_data_collator
+    return torch_default_data_collator(features)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stud/sirenm/miniconda3/envs/environment/lib/python3.11/site-packages/transformers/data/data_collator.py", line 158, in torch_default_data_collator
+    batch[k] = torch.tensor([f[k] for f in features])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: expected sequence of length 39506 at dim 1 (got 46980)

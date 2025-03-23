@@ -10,11 +10,11 @@ from torch.utils.data import Dataset, DataLoader
 from transformers import WavLMForSequenceClassification, Trainer, TrainingArguments
 import wandb
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu") 
  
-feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained("microsoft/wavlm-base-plus")
-model = WavLMForSequenceClassification.from_pretrained("microsoft/wavlm-base-plus", num_labels=6)
+feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained("microsoft/wavlm-large")
+model = WavLMForSequenceClassification.from_pretrained("microsoft/wavlm-large", num_labels=6)
 model.to(device)
 
 class EmotionDataset(Dataset):
@@ -33,7 +33,7 @@ class EmotionDataset(Dataset):
             "labels": torch.tensor(label, dtype=torch.long)
         }
 
-data_dir = "train.csv"
+data_dir = "train.json"
 label_map = {
     "ANG": 0,
     "DIS": 1,
@@ -42,30 +42,22 @@ label_map = {
     "HAP": 4,
     "NEU": 5
 }
+df = pd.read_json(data_dir)
+df = df[df["emotion"].isin(label_map)]
 
-labels = []
-files = []
+labels = df["emotion"].map(label_map).tolist()
 
-df = pd.read_csv(data_dir)
-for index, value in df.iterrows():
-    emotion = value["emotion"]
-    if emotion in label_map:
-            labels.append(emotion)
-            files.append(value["Features"])
+files = df["Features"].tolist()
 
 dataset = EmotionDataset(files, labels)
 
-eval_data_dir = "eval.csv"
+eval_data_dir = "eval.json"
+df = pd.read_json(eval_data_dir)
+df = df[df["emotion"].isin(label_map)]
 
-eval_labels = []
-eval_files = []
+eval_labels = df["emotion"].map(label_map).tolist()
 
-df = pd.read_csv(eval_data_dir)
-for index, value in df.iterrows():
-    emotion = value["emotion"]
-    if emotion in label_map:
-            labels.append(emotion)
-            files.append(df["Features"].apply(lambda x: torch.tensor(ast.literal_eval(x))))
+eval_files = df["Features"].tolist()
 
 eval_dataset = EmotionDataset(eval_files, eval_labels)
 
@@ -85,8 +77,7 @@ trainer = Trainer(
     model=model,
     args=training_args,
     train_dataset=dataset,
-    eval_dataset=eval_dataset,
-    tokenizer=feature_extractor
+    eval_dataset=eval_dataset
 )
 
 trainer.train()
