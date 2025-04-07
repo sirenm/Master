@@ -15,7 +15,7 @@
 /environment
 /CremaEvaluation
 /CremaTest
-/CremaTrain
+/Crema
 **/results*/
 /results
 get-pip.py
@@ -26,5 +26,9 @@ dataset.json
 eval.json
 test.json
 train.json
+Wav2Vec2Base15.csv
+Wav2Vec2Large60.csv
+WavLMBase15.csv
+WavLMLarge15.csv
 results.csv
 .DS_Store
