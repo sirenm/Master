@@ -13,6 +13,8 @@
 /testenv
 /env
 /environment
+/CremaEvaluation
+/CremaTest
 /CremaTrain
 /Crema
 **/results*/

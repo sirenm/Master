@@ -76,7 +76,6 @@ for filename in sorted(os.listdir(data_dir)):
 
 dataset = EmotionDataset(files, labels)
 
-# Evaluation set
 val_dir = "CremaEvaluation"
 eval_labels = []
 eval_files = []

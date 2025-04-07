@@ -242,7 +242,7 @@ male_count = 0
 total_count = len(emotionmodel.happy_to_disgust)
 intensity_count = 0
 for filepath in emotionmodel.happy_to_disgust:
-    actor_id = filepath.split('/')[1].split('_')[0]  # Extract '1007' from 'CremaTest/1007_TIE_HAP_XX.wav'
+    actor_id = filepath.split('/')[1].split('_')[0] 
     intensity = filepath.split('/')[1].split('_')[3]
     if intensity != "XX.wav":
         intensity_count += 1

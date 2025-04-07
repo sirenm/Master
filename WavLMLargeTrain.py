@@ -10,7 +10,7 @@ import numpy as np
 
 # Reproducibility
 os.environ["CUDA_VISIBLE_DEVICES"] = "5"
-os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":16:8"  # Needed for CUDA determinism
+os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":16:8" 
 
 def set_seed(seed):
     random.seed(seed)
@@ -69,7 +69,6 @@ for filename in sorted(os.listdir(data_dir)):
 
 dataset = EmotionDataset(files, labels)
 
-# Evaluation set
 val_dir = "CremaEvaluation"
 eval_labels = []
 eval_files = []
