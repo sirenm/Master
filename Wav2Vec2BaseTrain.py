@@ -1,21 +1,14 @@
-import ast
 import random
-import pandas as pd
 import torch
 import torchaudio
-import torchaudio.transforms as T
-from transformers import Wav2Vec2FeatureExtractor, Wav2Vec2ForSequenceClassification, Wav2Vec2Model
-import torch.nn.functional as F
+from transformers import Wav2Vec2FeatureExtractor, Wav2Vec2ForSequenceClassification
 import os
-from torch.utils.data import Dataset, DataLoader
-from transformers import WavLMForSequenceClassification, Trainer, TrainingArguments
-import wandb
-import ast
+from torch.utils.data import Dataset
+from transformers import Trainer, TrainingArguments
 import numpy as np
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "4"
-
-os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":16:8"  # Needed for CUDA determinism
+os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":16:8" 
 
 def set_seed(seed):
     random.seed(seed)
@@ -28,7 +21,7 @@ def set_seed(seed):
 set_seed(42)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu") 
-print(device)
+
 feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained("facebook/wav2vec2-base")
 model = Wav2Vec2ForSequenceClassification.from_pretrained(
     "facebook/wav2vec2-base",
@@ -52,7 +45,7 @@ class EmotionDataset(Dataset):
         if sample_rate != 16000:
             waveform = torchaudio.transforms.Resample(orig_freq=sample_rate, new_freq=16000)(waveform)
         inputs = feature_extractor(waveform.squeeze(0), sampling_rate=16000, return_tensors="pt", padding="max_length",
-    truncation=True, max_length=39506)
+        truncation=True, max_length=39506)
        
         return {
             "input_values": inputs["input_values"].flatten().squeeze(0),
@@ -81,7 +74,7 @@ for filename in sorted(os.listdir(data_dir)):
 
 dataset = EmotionDataset(files, labels)
 
-val_dir = "CremaEvaluation"
+val_dir = "CremaValidation"
 eval_labels = []
 eval_files = []
 for filename in sorted(os.listdir(val_dir)):
@@ -93,8 +86,6 @@ for filename in sorted(os.listdir(val_dir)):
             eval_files.append(full_path)
 
 eval_dataset = EmotionDataset(eval_files, eval_labels)
-
-train_loader = DataLoader(dataset, batch_size=16, shuffle=True)
 
 training_args = TrainingArguments(
     output_dir="./results",
@@ -118,5 +109,5 @@ trainer = Trainer(
 )
 
 trainer.train()
-model.save_pretrained("Wav2Vec2Base20/")
-feature_extractor.save_pretrained("Wav2Vec2Base20/")
+model.save_pretrained("Wav2Vec2Base/")
+feature_extractor.save_pretrained("Wav2Vec2Base/")

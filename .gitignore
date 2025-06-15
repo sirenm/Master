@@ -13,11 +13,13 @@
 /testenv
 /env
 /environment
-/CremaEvaluation
+/CremaValidation
 /CremaTest
 /CremaTrain
-/Crema
+**/Crema*/
 **/results*/
+**/Results*/
+*.csv
 /results
 get-pip.py
 train.csv
@@ -33,3 +35,5 @@ WavLMBase15.csv
 WavLMLarge15.csv
 results.csv
 .DS_Store
+WavLMTrainNoLog.py
+*.pyc

@@ -98,38 +98,13 @@ GENDERMAP = {
     "1090": "Male",
     "1091": "Female"
 }
-
-class DatasetRavdess:
-    def __init__(self, dataset_filepath):
-        self.dataset_filepath = dataset_filepath
-
-    def copy_files(self, source_folder, destination_folder, sub_destination_folder, filepath):
-        subfolder_path = os.path.join(destination_folder, sub_destination_folder)
-        os.makedirs(subfolder_path, exist_ok=True)
-        source_path = os.path.join(source_folder, filepath)
-        file_path = os.path.join(subfolder_path, filepath)
-        shutil.copy(os.path.join(source_path), file_path)
-
-    def divide_dataset(self):
-        os.makedirs("TrainData", exist_ok=True)
-        os.makedirs("TestData", exist_ok=True)
-        count = 0
-        for item in os.listdir(self.dataset_filepath):
-            item_path = os.path.join(self.dataset_filepath, item)
-            if os.path.isdir(item_path):
-                for file in os.listdir(item_path):
-                    if count < 720:
-                        self.copy_files(item_path, "TrainData", item, file)
-                        count += 1
-                    else:
-                        self.copy_files(item_path, "TestData", item, file)
     
 class DatasetCrema:
     def __init__(self, dataset_filepath):
         self.dataset_filepath = dataset_filepath
         self.train_folder = "CremaTrain"
         self.test_folder = "CremaTest"
-        self.eval_folder = "CremaEvaluation"
+        self.eval_folder = "CremaValidation"
         os.makedirs(self.train_folder, exist_ok=True)
         os.makedirs(self.test_folder, exist_ok=True)
         os.makedirs(self.eval_folder, exist_ok=True)

@@ -1,15 +1,13 @@
 import random
 import torch
 import torchaudio
-import torchaudio.transforms as T
 from transformers import Wav2Vec2FeatureExtractor, WavLMForSequenceClassification, Trainer, TrainingArguments, WavLMConfig
-import torch.nn.functional as F
 import os
 from torch.utils.data import Dataset
 import numpy as np
+from Logging_training_data import *
 
-# Reproducibility
-os.environ["CUDA_VISIBLE_DEVICES"] = "5"
+os.environ["CUDA_VISIBLE_DEVICES"] = "7"
 os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":16:8" 
 
 def set_seed(seed):
@@ -26,7 +24,6 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained("microsoft/wavlm-large")
 
-# Use config to zero out dropout for full determinism
 config = WavLMConfig.from_pretrained("microsoft/wavlm-large")
 config.num_labels = 6
 config.hidden_dropout = 0.0
@@ -48,6 +45,7 @@ class EmotionDataset(Dataset):
         waveform, sample_rate = torchaudio.load(audio_path)
         if sample_rate != 16000:
             waveform = torchaudio.transforms.Resample(orig_freq=sample_rate, new_freq=16000)(waveform)
+
         inputs = feature_extractor(waveform.squeeze(0), sampling_rate=16000, return_tensors="pt", padding=True)
         return {
             "input_values": inputs["input_values"].squeeze(0),
@@ -69,7 +67,7 @@ for filename in sorted(os.listdir(data_dir)):
 
 dataset = EmotionDataset(files, labels)
 
-val_dir = "CremaEvaluation"
+val_dir = "CremaValidation"
 eval_labels = []
 eval_files = []
 for filename in sorted(os.listdir(val_dir)):
@@ -83,8 +81,9 @@ for filename in sorted(os.listdir(val_dir)):
 eval_dataset = EmotionDataset(eval_files, eval_labels)
 
 training_args = TrainingArguments(
-    output_dir="./resultsWavLMLarge",
+    output_dir="./ResultsWavLMLargeDASeveral",
     evaluation_strategy="epoch",
+    logging_strategy="epoch",
     logging_dir="./logs",
     learning_rate=2e-5,
     per_device_train_batch_size=16,
@@ -92,7 +91,8 @@ training_args = TrainingArguments(
     weight_decay=0.01,
     seed=42,
     dataloader_num_workers=0,
-    remove_unused_columns=False
+    remove_unused_columns=False,
+    report_to="wandb"
 )
 
 trainer = Trainer(
@@ -100,9 +100,12 @@ trainer = Trainer(
     args=training_args,
     train_dataset=dataset,
     eval_dataset=eval_dataset,
-    tokenizer=feature_extractor
+    tokenizer=feature_extractor,
+    compute_metrics=compute_metrics
 )
 
+trainer.add_callback(CustomCallback(trainer))
+
 trainer.train()
-model.save_pretrained("WavLMLarge152ndtry/")
-feature_extractor.save_pretrained("WavLMLarge152ndtry/")
+model.save_pretrained("WavLMLarge/")
+feature_extractor.save_pretrained("WavLMLarge/")

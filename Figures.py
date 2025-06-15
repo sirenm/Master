@@ -15,9 +15,7 @@ from sklearn.metrics import confusion_matrix
 DATASET = "Crema"
 TESTSET= "CremaTest"
 TRAINSET = "CremaTrain"
-EVALUATIONSET = "CremaEvaluation"
-
-print("aifc module is available!")
+EVALUATIONSET = "CremaValidation"
 
 GENDERMAP = {
     "1001": "Male",
@@ -147,7 +145,7 @@ class PlotFigure:
 
         fig.show()
 
-""" def plot_emotion(datasetpath):
+def plot_emotion(datasetpath):
     dictionary = dict()
     for file in os.listdir(datasetpath):
         full_path = os.path.join(datasetpath, file)
@@ -223,144 +221,7 @@ def plot_intensity(datasetpath):
                 dictionary[intensity] = 1
     labels = [key for key in dictionary.keys()]
     values = [value for value in dictionary.values()]
-    return labels, values """
-
-""" def plot_emotion(datasetpath):
-    dictionary = dict()
-    df = pd.read_csv(datasetpath)
-    for index, value in df.iterrows():
-        if value["emotion"] in dictionary:
-            dictionary[value["emotion"]] += 1
-        else:
-            dictionary[value["emotion"]] = 1
-    labels = [key for key in dictionary.keys()]
-    values = [value for value in dictionary.values()]
     return labels, values
-
-def plot_actor(datasetpath):
-    dictionary = dict()
-    df = pd.read_csv(datasetpath)
-    for index, value in df.iterrows():
-        if value["filename"].split("/")[-1].split("_")[0] in dictionary:
-            dictionary[value["filename"].split("/")[-1].split("_")[0]] += 1
-        else:
-            dictionary[value["filename"].split("/")[-1].split("_")[0]] = 1
-    labels = [key for key in dictionary.keys()]
-    values = [value for value in dictionary.values()]
-    return labels, values
-
-def plot_gender(datasetpath):
-    dictionary = dict()
-    df = pd.read_csv(datasetpath)
-    for index, value in df.iterrows():
-        file_name_list = value["filename"].split("/")[-1].split("_")[0]
-        gender = GENDERMAP[file_name_list]
-        if gender in dictionary:
-            dictionary[gender] += 1
-        else:
-            dictionary[gender] = 1
-    labels = [key for key in dictionary.keys()]
-    values = [value for value in dictionary.values()]
-    return labels, values
-
-def plot_statement(datasetpath):
-    dictionary = dict()
-    df = pd.read_csv(datasetpath)
-    for index, value in df.iterrows():
-        if value["filename"].split("/")[-1].split("_")[1] in dictionary:
-            dictionary[value["filename"].split("/")[-1].split("_")[1]] += 1
-        else:
-            dictionary[value["filename"].split("/")[-1].split("_")[1]] = 1
-    labels = [key for key in dictionary.keys()]
-    values = [value for value in dictionary.values()]
-    return labels, values
-
-def plot_intensity(datasetpath):
-    dictionary = dict()
-    df = pd.read_csv(datasetpath)
-    for index, value in df.iterrows():
-        if value["filename"].split("/")[-1].split("_")[3] in dictionary:
-            dictionary[value["filename"].split("/")[-1].split("_")[3]] += 1
-        else:
-            dictionary[value["filename"].split("/")[-1].split("_")[3]] = 1
-    labels = [key for key in dictionary.keys()]
-    values = [value for value in dictionary.values()]
-    return labels, values
-
-
-labels_data, values_data = plot_emotion("dataset.csv")
-labels_train, values_train = plot_emotion("train.csv")
-labels_test, values_test = plot_emotion("test.csv")
-labels_evaluation, values_evaluation = plot_emotion("eval.csv")
-all_labels = []
-all_values = []
-all_labels.append(labels_data)
-all_labels.append(labels_train)
-all_labels.append(labels_test)
-all_labels.append(labels_evaluation)
-all_values.append(values_data)
-all_values.append(values_train)
-all_values.append(values_test)
-all_values.append(values_evaluation)
-
-plotter = PlotFigure(all_labels, all_values)
-plotter.generate_pie_chart(["Entire dataset", "Train dataset", "Test dataset", "Evalutation dataset"], "Emotions")
-
-labels_data, values_data = plot_gender("dataset.csv")
-labels_train, values_train = plot_gender("train.csv")
-labels_test, values_test = plot_gender("test.csv")
-labels_evaluation, values_evaluation = plot_gender("eval.csv")
-all_labels = []
-all_values = []
-all_labels.append(labels_data)
-all_labels.append(labels_train)
-all_labels.append(labels_test)
-all_labels.append(labels_evaluation)
-all_values.append(values_data)
-all_values.append(values_train)
-all_values.append(values_test)
-all_values.append(values_evaluation)
-
-plotter = PlotFigure(all_labels, all_values)
-plotter.generate_pie_chart(["Entire dataset", "Train dataset", "Test dataset", "Evaluation dataset"], "Genders")
-
-
-labels_data, values_data = plot_statement("dataset.csv")
-labels_train, values_train = plot_statement("train.csv")
-labels_test, values_test = plot_statement("test.csv")
-labels_evaluation, values_evaluation = plot_statement("eval.csv")
-all_labels = []
-all_values = []
-all_labels.append(labels_data)
-all_labels.append(labels_train)
-all_labels.append(labels_test)
-all_labels.append(labels_evaluation)
-all_values.append(values_data)
-all_values.append(values_train)
-all_values.append(values_test)
-all_values.append(values_evaluation)
-
-plotter = PlotFigure(all_labels, all_values)
-plotter.generate_pie_chart(["Entire dataset", "Train dataset","Test dataset", "Evaluation dataset"], "Statements")
-
-labels_data, values_data = plot_intensity("dataset.csv")
-labels_train, values_train = plot_intensity("train.csv")
-labels_test, values_test = plot_intensity("test.csv")
-labels_evaluation, values_evaluation = plot_intensity("eval.csv")
-all_labels = []
-all_values = []
-all_labels.append(labels_data)
-all_labels.append(labels_train)
-all_labels.append(labels_test)
-all_labels.append(labels_evaluation)
-all_values.append(values_data)
-all_values.append(values_train)
-all_values.append(values_test)
-all_values.append(values_evaluation)
-
-plotter = PlotFigure(all_labels, all_values)
-plotter.generate_pie_chart(["Entire dataset", "Train dataset", "Test dataset", "Evaluation dataset"], "Intensities")
-
 
 all_labels = [["Correct", "Wrong"]]
 all_values = [[1108, 380],[2610, 1111]]
@@ -400,62 +261,6 @@ df_train = pd.DataFrame(plot_statements_intesity(TRAINSET))
 df_test = pd.DataFrame(plot_statements_intesity(TESTSET))
 df_eval = pd.DataFrame(plot_statements_intesity(EVALUATIONSET))
 
-fig = make_subplots(
-    rows=2, cols=2, 
-    subplot_titles=["Total", "Trainset", "Testset", "Evaluationset"]
-)
-
-datasets = [df_total, df_train, df_test, df_eval]
-titles = ["Total", "Trainset", "Testset", "Evaluationset"]
-
-for i, (df, title) in enumerate(zip(datasets, titles)):
-    row = (i // 2) + 1 
-    col = (i % 2) + 1   
-    for intensity in plottermap:
-        subset = df[df["Intensity"] == intensity]
-        fig.add_trace(
-            go.Bar(
-                x=subset["Category"], 
-                y=subset["Count"], 
-                name=intensity, 
-                legendgroup=intensity
-            ),
-            row=row, col=col
-        )
-
-fig.update_layout(
-    title_text="Intensity Distribution per Category",
-    barmode='group',
-    showlegend=True,
-    width=1200, 
-    height=800 
-)
-
-fig.show()  """
-
-
-""" label_map = {
-    "ANG": 0,
-    "DIS": 1,
-    "FEA": 2,
-    "SAD": 3,
-    "HAP": 4,
-    "NEU": 5
-}
-
-file_path = 'results.csv'
-df = pd.read_csv(file_path)
-y_pred_labels = df['Predicted Labels']
-y_test_labels = df['Actual Labels']
-
-cm = confusion_matrix(y_test_labels, y_pred_labels)
-
-plt.figure(figsize=(12, 10))
-sns.heatmap(cm, linecolor='white', cmap='Blues', linewidth=1, annot=True, fmt='d')
-plt.title('Confusion Matrix', size=20)
-plt.xlabel('Predicted Labels', size=14)
-plt.ylabel('Actual Labels', size=14)
-plt.show() """
 
 label_map = {
     "ANG": 0,
@@ -468,15 +273,13 @@ label_map = {
 
 emotions = [emotion for emotion, _ in sorted(label_map.items(), key=lambda item: item[1])]
 
-# Load data and compute confusion matrix
-file_path = 'WavLMLarge15.csv'
+file_path = 'Wav2Vec2LargeCF.csv.csv'
 df = pd.read_csv(file_path)
 y_pred_labels = df['Predicted Labels']
 y_test_labels = df['Actual Labels']
 
 cm = confusion_matrix(y_test_labels, y_pred_labels)
 
-# Plot the confusion matrix with emotion labels
 plt.figure(figsize=(12, 10))
 sns.heatmap(cm, linecolor='white', cmap='Blues', linewidth=1, annot=True, fmt='d',
             xticklabels=emotions, yticklabels=emotions)

@@ -1,12 +1,7 @@
 import torch
 import torchaudio
-import torchaudio.transforms as T
-from transformers import WavLMForCTC, Wav2Vec2FeatureExtractor, WavLMForSequenceClassification, AutoProcessor, Wav2Vec2ForSequenceClassification
-import torch.nn.functional as F
+from transformers import WavLMForCTC, Wav2Vec2FeatureExtractor, AutoProcessor, Wav2Vec2ForSequenceClassification
 import os
-from torch.utils.data import Dataset, DataLoader
-from transformers import WavLMForSequenceClassification, Trainer, TrainingArguments
-import wandb
 from sklearn.metrics import f1_score
 import pandas as pd
 import random
@@ -27,8 +22,10 @@ set_seed(42)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu") 
 transcription_model = WavLMForCTC.from_pretrained("patrickvonplaten/wavlm-libri-clean-100h-base-plus")
 transcription_processor = AutoProcessor.from_pretrained("patrickvonplaten/wavlm-libri-clean-100h-base-plus")
-feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained("Wav2Vec2Large60")
-emotion_model = Wav2Vec2ForSequenceClassification.from_pretrained("Wav2Vec2Large60")
+
+modelpath = "Wav2Vec2Base"
+feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained(modelpath)
+emotion_model = Wav2Vec2ForSequenceClassification.from_pretrained(modelpath)
 transcription_model.to(device)
 emotion_model.to(device)
 
@@ -54,20 +51,20 @@ class EmotionModel():
         
         waveform = waveform.flatten().squeeze(0)
 
+        ## Transcription
         transcription_inputs = transcription_processor(waveform, sampling_rate=16000, return_tensors="pt")
         transcription_inputs = {key: val.to(device) for key, val in transcription_inputs.items()}
         with torch.no_grad():
             logits = transcription_model(**transcription_inputs).logits
-            print("Shape for waveform values: ", waveform.shape)
-            inputs = feature_extractor(waveform, sampling_rate=16000, return_tensors="pt", padding=True)
-            input_values = inputs["input_values"].to(device)
         transcription_predicted_ids = torch.argmax(logits, dim=-1)
 
 
         transcription = transcription_processor.batch_decode(transcription_predicted_ids)[0]
 
+        ## emotion classification
         with torch.no_grad():
-            print("Shape for input values: ", input_values.shape)
+            inputs = feature_extractor(waveform, sampling_rate=16000, return_tensors="pt", padding=True)
+            input_values = inputs["input_values"].to(device)
             emotion_logits = emotion_model(input_values).logits
             predicted_emotion_class = torch.argmax(emotion_logits, dim=-1).item()
 
@@ -106,8 +103,10 @@ print("Correct prediction:", emotionmodel.correct_prediction)
 print("Wrong predictions:", emotionmodel.wrong_prediction)
 print("Total predictions:", emotionmodel.total_predictions)
 print("f1 score:", f1)
-print("Accurancy:", emotionmodel.correct_prediction/emotionmodel.total_predictions)
+print("Accuracy:", emotionmodel.correct_prediction/emotionmodel.total_predictions)
 
+
+# Save data for confusion matrix
 results_data = {
     "Actual Labels": emotionmodel.labels,
     "Predicted Labels": emotionmodel.actual_predictions
@@ -115,4 +114,4 @@ results_data = {
 
 df_results = pd.DataFrame(results_data)
 
-#df_results.to_csv("Wav2Vec2Base15.csv", index=False)
+df_results.to_csv("Wav2Vec2BaseCF.csv", index=False)
