@@ -24,8 +24,10 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 transcription_model = WavLMForCTC.from_pretrained("patrickvonplaten/wavlm-libri-clean-100h-base-plus")
 transcription_processor = AutoProcessor.from_pretrained("patrickvonplaten/wavlm-libri-clean-100h-base-plus")
-feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained("WavLMBase15")
-emotion_model = WavLMForSequenceClassification.from_pretrained("WavLMBase15")
+
+modelpath = "WavLMBasePlus"
+feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained(modelpath)
+emotion_model = WavLMForSequenceClassification.from_pretrained(modelpath)
 transcription_model.to(device)
 emotion_model.to(device)
 
@@ -47,12 +49,14 @@ class EmotionModel:
         waveform = waveform.flatten().squeeze(0)
 
         with torch.no_grad():
+            # Transcription
             transcription_inputs = transcription_processor(waveform, sampling_rate=16000, return_tensors="pt")
             transcription_inputs = {k: v.to(device) for k, v in transcription_inputs.items()}
             logits = transcription_model(**transcription_inputs).logits
             transcription_ids = torch.argmax(logits, dim=-1)
             transcription = transcription_processor.batch_decode(transcription_ids)[0]
 
+            # Emotion
             inputs = feature_extractor(waveform, sampling_rate=16000, return_tensors="pt", padding="max_length", max_length=16000)
             input_values = inputs["input_values"].to(device)
             emotion_logits = emotion_model(input_values).logits
@@ -92,8 +96,9 @@ print("Correct prediction:", emotionmodel.correct_prediction)
 print("Wrong predictions:", emotionmodel.wrong_prediction)
 print("Total predictions:", emotionmodel.total_predictions)
 print("f1 score:", f1)
-print("Accurancy:", emotionmodel.correct_prediction/emotionmodel.total_predictions)
+print("Accuracy:", emotionmodel.correct_prediction/emotionmodel.total_predictions)
 
+# Save data for Confusion Matrix
 results_data = {
     "Actual Labels": emotionmodel.labels,
     "Predicted Labels": emotionmodel.actual_predictions
@@ -101,4 +106,4 @@ results_data = {
 
 df_results = pd.DataFrame(results_data)
 
-df_results.to_csv("WavLMBase15.csv", index=False)
+df_results.to_csv("WavLMBasePlus15.csv", index=False)
